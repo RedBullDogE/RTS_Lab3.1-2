@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RTS LW 3.X</string>
+    <string name="LW3X">Laboratory Works 3.X</string>
+    <string name="title1">Fermat\'s factorization</string>
+    <string name="textEntry1">Enter an integer value</string>
+    <string name="button1">Start Lab1!</string>
+    <string name="result1">Result:</string>
+    <string name="title2">Perceptron training</string>
+    <string name="inputTitle2">Input values:</string>
+    <string name="button2">Start Lab2!</string>
+    <string name="inputData2" />
+</resources>
