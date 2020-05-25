@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         val goButton2: Button = findViewById(R.id.button2)
         val result2: TextView = findViewById(R.id.result2)
 
+        val inputData3_a: EditText = findViewById(R.id.inputA)
+        val inputData3_b: EditText = findViewById(R.id.inputB)
+        val inputData3_c: EditText = findViewById(R.id.inputC)
+        val inputData3_d: EditText = findViewById(R.id.inputD)
+        val inputData3_y: EditText = findViewById(R.id.inputY)
+        val goButton3: Button = findViewById(R.id.button3)
+        val result3: TextView = findViewById(R.id.result3)
+
         inputData2.text = "${inputData2.text}" +
                 "(0; 6), (1; 5), (3, 3); (2, 4)\n" +
                 "P = 4\n" +
@@ -75,6 +83,39 @@ class MainActivity : AppCompatActivity() {
             result2.text = "Time: ${perceptron.time}ms\n" +
                     "Iterations: ${perceptron.iter}\n" +
                     "W1 = ${perceptron.w1.format(2)}, W2 = ${perceptron.w2.format(2)}"
+        }
+
+        goButton3.setOnClickListener { _ ->
+            val a: Int
+            val b: Int
+            val c: Int
+            val d: Int
+            val y: Int
+
+            try {
+                a = inputData3_a.text.toString().toInt()
+                b = inputData3_b.text.toString().toInt()
+                c = inputData3_c.text.toString().toInt()
+                d = inputData3_d.text.toString().toInt()
+                y = inputData3_y.text.toString().toInt()
+                try {
+                    val answer = geneticAlgorithm(a, b, c, d, y).toString()
+                    result3.text = answer
+                } catch (e: IllegalArgumentException) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Well... Not today :c",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            } catch (e: NumberFormatException) {
+                Toast.makeText(
+                    applicationContext,
+                    "Please, enter correct values!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
         }
     }
 }
