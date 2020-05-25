@@ -9,4 +9,15 @@
     <string name="inputTitle2">Input values:</string>
     <string name="button2">Start Lab2!</string>
     <string name="inputData2" />
+    <string name="titleLab3">Genetic algorithm</string>
+    <string name="x4">*x4 =</string>
+    <string name="x1">*x1 +</string>
+    <string name="x3">*x3 +</string>
+    <string name="x2">*x2 +</string>
+    <string name="b">b</string>
+    <string name="a">a</string>
+    <string name="c">c</string>
+    <string name="d">d</string>
+    <string name="y">y</string>
+    <string name="button3">Start Lab3!</string>
 </resources>

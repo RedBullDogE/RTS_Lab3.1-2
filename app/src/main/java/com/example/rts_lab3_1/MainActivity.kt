@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.concurrent.TimeoutException
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +42,12 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(
                     applicationContext,
                     "Please, enter correct values!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } catch (e: TimeoutException) {
+                Toast.makeText(
+                    applicationContext,
+                    "Time out :(",
                     Toast.LENGTH_SHORT
                 ).show()
             }
