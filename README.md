@@ -1,7 +1,9 @@
-# Laboratory Works 3.1 - 3.2 | RTS
+# Laboratory Works 3.1 - 3.3 | RTS
 
 ## Work examples:
 
-<img src="photo_2020-05-15_17-31-04.jpg" width="40%">
+<img src="lw_3_1" width="40%">
 
-<img src="photo_2020-05-15_17-31-05.jpg" width="40%">
+<img src="lw_3_2" width="40%">
+
+<img src="lw_3_3" width="40%">
