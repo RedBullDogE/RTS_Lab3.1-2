@@ -4,7 +4,6 @@ import kotlin.math.abs
 import kotlin.random.Random
 
 const val N: Int = 4
-const val MUTATION_PROBABILITY = .5
 
 fun generateRandomGenotype(a: Int, b: Int): List<Int> {
     return (1..N).map { Random.nextInt(a, b) }
@@ -33,10 +32,10 @@ fun calcProbability(deltaList: List<Int>): List<Double> {
     return probList
 }
 
-fun mutation(genList: MutableList<Int>): MutableList<Int> {
+fun mutation(genList: MutableList<Int>, mutPerc: Double): MutableList<Int> {
     val roulette = Random.nextDouble()
 
-    if (roulette < MUTATION_PROBABILITY) {
+    if (roulette < mutPerc) {
         genList.mapInPlace {
             it + Random.nextInt(-10, 10)
         }
@@ -74,23 +73,29 @@ fun breeding(population: List<Int>, probList: List<Double>): List<Int> {
 
 fun geneticAlgorithm(a: Int, b: Int, c: Int, d: Int, y: Int): List<Int> {
     val equation = listOf<Int>(a, b, c, d)
+    var mutationPercentage = .0
 
-    for (n in 0..100000) {
-        val genList = (1..N + 1).map { generateRandomGenotype(1, y) }
+    while (mutationPercentage < 1.0) {
+        for (n in 0..100000) {
+            val genList = (1..N + 1).map { generateRandomGenotype(1, y) }
 
-        val deltaList = mutableListOf<Int>()
+            val deltaList = mutableListOf<Int>()
 
-        for (i in genList.indices) {
-            val cur = calcDelta(equation, genList[i], y)
-            if (cur == 0) {
-                println("Result" + genList[i])
-                return genList[i]
+            for (i in genList.indices) {
+                val cur = calcDelta(equation, genList[i], y)
+                if (cur == 0) {
+                    println("Result " + genList[i])
+                    return genList[i]
+                }
+
+                deltaList.add(cur)
+
+                mutation(genList[i] as MutableList<Int>, mutationPercentage)
             }
 
-            deltaList.add(cur)
+            val probList = calcProbability(deltaList)
+            mutationPercentage += 0.1
         }
-
-        val probList = calcProbability(deltaList)
     }
     throw IllegalArgumentException()
 }
